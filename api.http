@@ -1,0 +1,3 @@
+GET  http://localhost:3000/categories/uucxf
+
+GET  http://localhost:3000/categories

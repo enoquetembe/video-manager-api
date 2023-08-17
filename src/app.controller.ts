@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+/* eslint-disable no-useless-constructor */
+import { Controller, Get } from '@nestjs/common'
+import { AppService } from './app.service'
 
 @Controller()
 export class AppController {
@@ -7,6 +8,11 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return this.appService.getHello();
+    return this.appService.getHello()
+  }
+
+  @Get('test')
+  getTest(): string {
+    return this.appService.getTest()
   }
 }
