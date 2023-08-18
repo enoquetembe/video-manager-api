@@ -1,3 +1,24 @@
-GET  http://localhost:3000/categories/uucxf
+//GET  http://localhost:3000/categories
 
-GET  http://localhost:3000/categories
+DELETE   http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
+
+GET  http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
+
+
+
+POST http://localhost:3000/categories
+Content-Type: application/json
+  
+{
+  "name": "Lesson 1",
+  "description": "This is Lesson 1"
+}
+
+PATCH  http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
+Content-Type: application/json
+
+{
+  "name": "Lesson 1",
+  "description": "This is The Lesson 1"
+}
+
