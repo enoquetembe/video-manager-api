@@ -14,7 +14,6 @@ export class PrismaExceptionFilter implements ExceptionFilter {
       })
     }
 
-    
     return response.status(500).json({
       statusCode: 500,
       message: 'Internal server error',
