@@ -3,6 +3,7 @@ import { AppModule } from './app.module'
 import { PrismaExceptionFilter } from './exceptions-filters/prisma.exception-filter'
 import { ValidationPipe } from '@nestjs/common'
 import { InvalidRelationExceptionFilter } from './exceptions-filters/invalid-relation.exception-filter'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
@@ -16,6 +17,15 @@ async function bootstrap() {
       errorHttpStatusCode: 422,
     }),
   )
+
+  const config = new DocumentBuilder()
+    .setTitle('Video Manager API')
+    .setDescription('Description')
+    .setVersion('1.0')
+    .build()
+
+  const document = SwaggerModule.createDocument(app, config)
+  SwaggerModule.setup('api', app, document)
 
   await app.listen(3000)
 }

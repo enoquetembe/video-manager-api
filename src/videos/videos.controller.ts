@@ -12,19 +12,28 @@ import {
   Res,
 } from '@nestjs/common'
 import { VideosService } from './videos.service'
-import { CreateVideoDto } from './dto/create-video.dto'
+import {
+  CreateVideoDto,
+  CreateVideoWithUploadDto,
+} from './dto/create-video.dto'
 import { UpdateVideoDto } from './dto/update-video.dto'
 import { VideoFileValidator } from './video-file-validator'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { createReadStream } from 'fs'
 import { join } from 'path'
+import { Response } from 'express'
+import { ApiBody, ApiConsumes } from '@nestjs/swagger'
 
 @Controller('videos')
 export class VideosController {
   constructor(private readonly videosService: VideosService) {}
 
-  @UseInterceptors(FileInterceptor('file'))
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    type: CreateVideoWithUploadDto,
+  })
   @Post()
+  @UseInterceptors(FileInterceptor('file'))
   create(
     @Body() createVideoDto: CreateVideoDto,
     @UploadedFile(
