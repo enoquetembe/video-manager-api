@@ -1,33 +1,65 @@
-GET  http://localhost:3000/categories
+# GET  http://localhost:3000/categories
 
-DELETE   http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
+# DELETE   http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
 
-GET  http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
+# GET  http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
 
 
 
-POST http://localhost:3000/categories
-Content-Type: application/json
+# POST http://localhost:3000/categories
+# Content-Type: application/json
   
-{
-  "name": "Category 1",
-  "description": "This is Category 1"
-}
+# {
+#   "name": "Category 1",
+#   "description": "This is Category 1"
+# }
 
-PATCH  http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
-Content-Type: application/json
+# PATCH  http://localhost:3000/categories/dce557eb-db91-45fa-b58a-96ee96292172
+# Content-Type: application/json
 
-{
-  "name": "Lesson 1",
-  "description": "This is The Lesson 1"
-}
+# {
+#   "name": "Lesson 1",
+#   "description": "This is The Lesson 1"
+# }
 
 
 
-GET  http://localhost:3000/videos
+# GET  http://localhost:3000/videos
+
+# POST http://localhost:3000/videos
+# Content-Type: application/json
+  
+# {
+#   "title": "Video 1",
+#   "description": "This is Video 1",
+#   "category_id": "abd34487-5845-4323-8cb2-cc016c37bf47"
+# }
 
 POST http://localhost:3000/videos
-Content-Type: application/json
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary1234 
+
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="title"
+
+Video 2
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="description"
+
+Description 2
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="category_id"
+
+abd34487-5845-4323-8cb2-cc016c37bf47
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="file"; filename="video.mp4"
+Content-Type: video/mp4
+
+< ./video.mp4
+------WebKitFormBoundary1234--
+
+
+
+
   
 {
   "title": "Video 1",
