@@ -41,7 +41,7 @@ export class VideosController {
         validators: [
           new VideoFileValidator({
             maxSize: 1024 * 1024 * 1000,
-            mimeType: 'video/mp4',
+            mimetype: 'video/mp4',
           }),
         ],
         errorHttpStatusCode: 422,
